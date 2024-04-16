@@ -1,0 +1,23 @@
+# Arquivos de compilação
+bin/
+obj/
+
+# Arquivos de configuração local
+.vs/
+*.suo
+*.user
+*.userprefs
+*.vscode/
+
+# Arquivos de logs e cache
+*.log
+*.cache
+
+# Pacotes NuGet
+packages/
+
+# Arquivos de build
+*.dll
+*.exe
+*.pdb
+*.dll.config
