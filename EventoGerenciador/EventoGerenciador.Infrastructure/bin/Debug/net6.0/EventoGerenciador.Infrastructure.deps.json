@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "EventoGerenciador.Infrastructure/1.0.0": {
+        "dependencies": {
+          "EventoGerenciador.Domain": "1.0.0"
+        },
+        "runtime": {
+          "EventoGerenciador.Infrastructure.dll": {}
+        }
+      },
+      "EventoGerenciador.Domain/1.0.0": {
+        "dependencies": {
+          "EventoGerenciador.Domain.Core": "1.0.0"
+        },
+        "runtime": {
+          "EventoGerenciador.Domain.dll": {}
+        }
+      },
+      "EventoGerenciador.Domain.Core/1.0.0": {
+        "runtime": {
+          "EventoGerenciador.Domain.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EventoGerenciador.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EventoGerenciador.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EventoGerenciador.Domain.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

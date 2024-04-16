@@ -1,0 +1,63 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "EventoGerenciador.Application/1.0.0": {
+        "dependencies": {
+          "EventoGerenciador.Domain": "1.0.0",
+          "EventoGerenciador.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "EventoGerenciador.Application.dll": {}
+        }
+      },
+      "EventoGerenciador.Domain/1.0.0": {
+        "dependencies": {
+          "EventoGerenciador.Domain.Core": "1.0.0"
+        },
+        "runtime": {
+          "EventoGerenciador.Domain.dll": {}
+        }
+      },
+      "EventoGerenciador.Domain.Core/1.0.0": {
+        "runtime": {
+          "EventoGerenciador.Domain.Core.dll": {}
+        }
+      },
+      "EventoGerenciador.Infrastructure/1.0.0": {
+        "dependencies": {
+          "EventoGerenciador.Domain": "1.0.0"
+        },
+        "runtime": {
+          "EventoGerenciador.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EventoGerenciador.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EventoGerenciador.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EventoGerenciador.Domain.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EventoGerenciador.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

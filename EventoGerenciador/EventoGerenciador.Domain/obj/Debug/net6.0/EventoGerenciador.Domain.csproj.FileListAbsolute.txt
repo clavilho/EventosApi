@@ -1,0 +1,15 @@
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\bin\Debug\net6.0\EventoGerenciador.Domain.deps.json
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\bin\Debug\net6.0\EventoGerenciador.Domain.dll
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\bin\Debug\net6.0\EventoGerenciador.Domain.pdb
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\bin\Debug\net6.0\EventoGerenciador.Domain.Core.dll
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\bin\Debug\net6.0\EventoGerenciador.Domain.Core.pdb
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\obj\Debug\net6.0\EventoGerenciador.Domain.csproj.AssemblyReference.cache
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\obj\Debug\net6.0\EventoGerenciador.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\obj\Debug\net6.0\EventoGerenciador.Domain.AssemblyInfoInputs.cache
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\obj\Debug\net6.0\EventoGerenciador.Domain.AssemblyInfo.cs
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\obj\Debug\net6.0\EventoGerenciador.Domain.csproj.CoreCompileInputs.cache
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\obj\Debug\net6.0\EventoGerenciador.Domain.csproj.CopyComplete
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\obj\Debug\net6.0\EventoGerenciador.Domain.dll
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\obj\Debug\net6.0\refint\EventoGerenciador.Domain.dll
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\obj\Debug\net6.0\EventoGerenciador.Domain.pdb
+C:\Users\João Vitor Clavilho\Documents\GitHub\EventosApi\EventoGerenciador\EventoGerenciador.Domain\obj\Debug\net6.0\ref\EventoGerenciador.Domain.dll
