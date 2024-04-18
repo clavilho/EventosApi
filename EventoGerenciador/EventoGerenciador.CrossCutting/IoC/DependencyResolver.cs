@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using EventoGerenciador.Application.Interface;
+using EventoGerenciador.Application.Services;
+using EventoGerenciador.Domain.Repository;
+using EventoGerenciador.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EventoGerenciador.CrossCutting.IoC;
 
@@ -13,11 +17,11 @@ public static class DependencyResolver
 
     private static void RegisterApplication(IServiceCollection services)
     {
-        //services.AddScoped<IService,Service>();
+        services.AddScoped<IEventosService, EventosService>();
     }
 
     private static void RegisterRepositories(IServiceCollection services)
     {
-        //services.AddScoped<IRepository, Repository>();
+        services.AddScoped<IEventoRepository, EventoRepository>();
     }
 }

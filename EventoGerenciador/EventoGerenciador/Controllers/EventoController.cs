@@ -17,9 +17,9 @@ public class EventoController : ControllerBase
 
     [HttpPost]
     [Route("{idEvento}/registrar")]
-    public IActionResult RegistrarEvento([FromRoute] Guid idEvento, [FromBody] RequestEvent evento)
+    public IActionResult RegistrarParticipanteNoEvento([FromRoute] Guid idEvento, [FromBody] RequestEvent evento)
     {
-        eventoService.RegistrarEvento(idEvento, evento);
+        eventoService.RegistrarParticipanteNoEvento(idEvento, evento);
 
         return Ok();
     }

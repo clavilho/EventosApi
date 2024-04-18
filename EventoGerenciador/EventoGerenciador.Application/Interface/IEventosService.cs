@@ -4,5 +4,5 @@ namespace EventoGerenciador.Application.Interface;
 
 public interface IEventosService
 {
-    Task RegistrarEvento(Guid idEvento, RequestEvent request);
+    Task RegistrarParticipanteNoEvento(Guid idEvento, RequestEvent request);
 }
