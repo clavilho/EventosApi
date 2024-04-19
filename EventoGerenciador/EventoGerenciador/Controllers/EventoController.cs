@@ -1,6 +1,9 @@
 ﻿using EventoGerenciador.Application.Interface;
+using EventoGerenciador.Application.Validations;
 using EventoGerenciador.Domain.RequestEntities;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace EventoGerenciador.Api.Controllers;
 
@@ -16,12 +19,54 @@ public class EventoController : ControllerBase
     }
 
     [HttpPost]
-    [Route("{idEvento}/registrar")]
-    public IActionResult RegistrarParticipanteNoEvento([FromRoute] Guid idEvento, [FromBody] RequestEvent evento)
+    [Route("criarEvento")]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+    public IActionResult RegistrarEvento([FromBody] EventoModel evento)
     {
-        eventoService.RegistrarParticipanteNoEvento(idEvento, evento);
+        try
+        {
+            EventoValidator validar = new EventoValidator();
 
-        return Ok();
+            var result = validar.Validate(evento);
+
+            if (!result.IsValid)
+            {
+                var erros = new List<ValidationFailure>();
+                foreach (var item in result.Errors)
+                {
+                    erros.Add(item);
+
+                }
+                return BadRequest(erros);
+            }
+
+            eventoService.RegistrarEvento(evento);
+
+            return Ok($"Evento {evento.Titulo} foi criado com sucesso");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+        }
+    }
+
+    [HttpGet]
+    [Route("evento/{idEvento}")]
+    public IActionResult BuscarEventoPorId([FromRoute] Guid idEvento)
+    {
+        try
+        {
+            var evento = eventoService.BuscarEventoPorId(idEvento);
+
+            return Ok(evento);
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using EventoGerenciador.Domain.RequestEntities;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EventoGerenciador.Domain.Entities;
 
@@ -10,4 +11,6 @@ public class Evento
     public string Detalhes { get; set; }
     public string Slug { get; set; }
     public int Maximo_Participantes { get; set; }
+
+  
 }

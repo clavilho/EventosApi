@@ -6,5 +6,6 @@ namespace EventoGerenciador.Domain.Repository;
 public interface IEventoRepository
 {
     Task<Evento> PegarEventoPorId(Guid id);
-    Task RegistrarParticipanteNoEvento(Guid id, RequestEvent participanteEvento);
+    Task RegistrarParticipanteNoEvento(Guid id, EventoModel participanteEvento);
+    Task RegistrarEvento(Evento evento);
 }

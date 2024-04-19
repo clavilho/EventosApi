@@ -1,51 +1,52 @@
-﻿using EventoGerenciador.Application.Interface;
+﻿using AutoMapper;
+using EventoGerenciador.Application.Interface;
+using EventoGerenciador.Domain.Entities;
 using EventoGerenciador.Domain.Repository;
 using EventoGerenciador.Domain.RequestEntities;
-using System.Net.Mail;
 
 namespace EventoGerenciador.Application.Services
 {
     public class EventosService : IEventosService
     {
         private readonly IEventoRepository eventoRepository;
+        private readonly IMapper mapper;
 
-
-        public EventosService(IEventoRepository eventoRepository)
+        public EventosService(IEventoRepository eventoRepository, IMapper mapper)
         {
             this.eventoRepository = eventoRepository;
+            this.mapper = mapper;
         }
 
-        public async Task RegistrarParticipanteNoEvento(Guid idEvento, RequestEvent request)
-        {
-            ValidarEvento(idEvento, request);
-
-            await eventoRepository.RegistrarParticipanteNoEvento(idEvento, request);
-        }
-
-
-        private void ValidarEvento(Guid idEvento, RequestEvent request)
-        {
-            var evento = eventoRepository.PegarEventoPorId(idEvento);
-
-            if (evento is null)
-                throw new Exception("Não é possivel registrar um participante em um evento inexistente");
-
-            if (string.IsNullOrEmpty(request.Name))
-                throw new Exception("Não é possivel registrar um participante sem nome");
-
-            EmailEhValido(request.Email);
-        }
-
-        private bool EmailEhValido(string email)
+        public async Task<EventoModel> BuscarEventoPorId(Guid idEvento)
         {
             try
             {
-                new MailAddress(email);
-                return true;
+                var evento = await eventoRepository.PegarEventoPorId(idEvento);
+
+                if (evento == null)
+                    throw new Exception("Esse evento não existe");
+
+                var eventoModel = mapper.Map<Evento, EventoModel>(evento);
+
+                return eventoModel;
             }
-            catch
+            catch (Exception)
             {
-                throw new Exception("Email não é valido");
+
+                throw;
+            }
+        }
+
+        public async Task RegistrarEvento(EventoModel request)
+        {
+            try
+            {
+                Evento novoEvento = mapper.Map<EventoModel, Evento>(request);
+                await eventoRepository.RegistrarEvento(novoEvento);
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }
