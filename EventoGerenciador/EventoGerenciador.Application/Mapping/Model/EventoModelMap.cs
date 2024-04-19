@@ -10,6 +10,9 @@ namespace EventoGerenciador.Application.Mapping.Model
         {
             CreateMap<EventoModel, Evento>()
                 .ConstructUsing(evento => EventoModel.MapRequestEventoModel(evento));
+
+            CreateMap<Evento, EventoModel>()
+                .ConstructUsing(evento => EventoModel.MapRequestEvent(evento));
         }
     }
 }

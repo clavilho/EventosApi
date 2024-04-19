@@ -19,4 +19,14 @@ public class EventoModel
             Slug = eventoModel.Titulo.ToLower().Replace(" ", "-")
         };
     }
+
+    public static EventoModel MapRequestEvent(Evento evento)
+    {
+        return new EventoModel
+        {
+            Titulo = evento.Titulo,
+            Detalhes = evento.Detalhes,
+            Maximo_Participantes = evento.Maximo_Participantes
+        };
+    }
 }

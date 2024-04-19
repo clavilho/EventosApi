@@ -53,12 +53,12 @@ public class EventoController : ControllerBase
     }
 
     [HttpGet]
-    [Route("evento/{idEvento}")]
-    public IActionResult BuscarEventoPorId([FromRoute] Guid idEvento)
+    [Route("{idEvento}")]
+    public async Task<IActionResult> BuscarEventoPorId([FromRoute] Guid idEvento)
     {
         try
         {
-            var evento = eventoService.BuscarEventoPorId(idEvento);
+            var evento = await eventoService.BuscarEventoPorId(idEvento);
 
             return Ok(evento);
         }
