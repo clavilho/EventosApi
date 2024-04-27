@@ -18,10 +18,12 @@ public static class DependencyResolver
     private static void RegisterApplication(IServiceCollection services)
     {
         services.AddScoped<IEventosService, EventosService>();
+        services.AddScoped<IParticipanteService, ParticipanteService>();
     }
 
     private static void RegisterRepositories(IServiceCollection services)
     {
         services.AddScoped<IEventoRepository, EventoRepository>();
+        services.AddScoped<IParticipanteRepository, ParticipanteRepository>();
     }
 }

@@ -27,7 +27,7 @@ public class EventoController : ControllerBase
     {
         try
         {
-            EventoValidator validar = new EventoValidator();
+            var validar = new EventoValidator();
 
             var result = validar.Validate(evento);
 
