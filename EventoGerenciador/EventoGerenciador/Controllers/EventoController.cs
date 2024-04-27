@@ -68,5 +68,21 @@ public class EventoController : ControllerBase
             throw;
         }
     }
+    [HttpGet]
+    [Route("buscarTodosEvento")]
+    public async Task<IActionResult> BuscarTodosEventos()
+    {
+        try
+        {
+            var eventos = await eventoService.BuscarTodosEventos();
+
+            return Ok(eventos);
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
 
 }

@@ -49,5 +49,27 @@ namespace EventoGerenciador.Application.Services
                 throw;
             }
         }
+
+        public async Task<IEnumerable<EventoModel>> BuscarTodosEventos()
+        {
+            try
+            {
+                var listEventoModel = new List<EventoModel>();
+                var todosEventos = eventoRepository.BuscarTodosEventos().Result.ToList();
+
+                foreach (var evento in todosEventos)
+                {
+                    listEventoModel.Add(mapper.Map<Evento, EventoModel>(evento));
+                }
+
+                return listEventoModel;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -63,4 +63,19 @@ public class EventoRepository : BaseRepositoy<Evento>, IEventoRepository
             throw;
         }
     }
+
+    public async Task<IEnumerable<Evento>> BuscarTodosEventos()
+    {
+        try
+        {
+            var eventos = await ListarAsync<Evento>(EventoSql.BUSCAR_TODOS_EVENTOS);
+
+            return eventos;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
 }

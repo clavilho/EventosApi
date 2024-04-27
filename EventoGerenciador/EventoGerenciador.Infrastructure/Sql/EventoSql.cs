@@ -16,4 +16,6 @@ public class EventoSql
                                                 ,@Detalhes
                                                 ,@Slug
                                                 ,@Maximo_Participantes)";
+
+    public const string BUSCAR_TODOS_EVENTOS = "SELECT * FROM Evento";
 }
