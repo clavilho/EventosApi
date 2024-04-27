@@ -22,22 +22,53 @@ public class ParticipanteController : ControllerBase
     [Route("registrarParticipante")]
     public IActionResult RegistrarParticipante([FromBody] ParticipanteModel participante)
     {
-        var validacao = new ParticipanteValidator().Validate(participante);
-
-        if (!validacao.IsValid)
+        try
         {
-            var erros = new List<ValidationFailure>();
-            foreach (var item in validacao.Errors)
-            {
-                erros.Add(item);
+            var validacao = new ParticipanteValidator().Validate(participante);
 
+            if (!validacao.IsValid)
+            {
+                var erros = new List<ValidationFailure>();
+                foreach (var item in validacao.Errors)
+                {
+                    erros.Add(item);
+
+                }
+                return BadRequest(erros);
             }
-            return BadRequest(erros);
+
+            var participanteCadastrado = participanteService.RegistrarParticipante(participante);
+
+            return Created("", participanteCadastrado);
+        }
+        catch (Exception)
+        {
+
+            throw;
         }
 
-        var participanteCadastrado = participanteService.RegistrarParticipante(participante);
+    }
 
-        return Created("", participanteCadastrado);
+    [HttpGet]
+    [Route("{eventId}")]
+    public async Task<IActionResult> BuscarParticipantesDeUmEvento([FromRoute] Guid eventId)
+    {
+        try
+        {
+            var participantes = await participanteService.BuscarParticipantesDoEvento(eventId);
+
+            if (!participantes.Any())
+            {
+                return NotFound("Não foi encontrado nenhum participante para esse evento.");
+            }
+
+            return Ok(participantes);
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 
 }

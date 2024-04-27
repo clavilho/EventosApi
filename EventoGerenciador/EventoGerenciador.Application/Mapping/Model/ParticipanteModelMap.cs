@@ -12,5 +12,8 @@ public class ParticipanteModelMap : Profile
 
         CreateMap<ParticipanteModel, Participante>()
             .ConstructUsing(participante => ParticipanteModel.MapRequestParticipanteModel(participante));
+
+        CreateMap<Participante, ParticipanteModel>()
+            .ConstructUsing(participante => ParticipanteModel.MapRequestParticipante(participante));
     }
 }

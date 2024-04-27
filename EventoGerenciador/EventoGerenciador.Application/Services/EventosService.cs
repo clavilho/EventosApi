@@ -55,7 +55,7 @@ namespace EventoGerenciador.Application.Services
             try
             {
                 var listEventoModel = new List<EventoModel>();
-                var todosEventos = eventoRepository.BuscarTodosEventos().Result.ToList();
+                var todosEventos = await eventoRepository.BuscarTodosEventos();
 
                 foreach (var evento in todosEventos)
                 {

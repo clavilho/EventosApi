@@ -20,15 +20,55 @@ public class ParticipanteService : IParticipanteService
     }
     public async Task<ParticipanteModel> RegistrarParticipante(ParticipanteModel participanteModel)
     {
-        var participante = mapper.Map<ParticipanteModel, Participante>(participanteModel);
+        try
+        {
+            var participante = mapper.Map<ParticipanteModel, Participante>(participanteModel);
 
-        var evento = await eventoRepository.PegarEventoPorId(participante.Event_Id);
+            var evento = await eventoRepository.PegarEventoPorId(participante.Event_Id);
 
-        if (evento == null)
-            throw new Exception("Não existe evento com o id que foi inserido.");
+            if (evento == null)
+                throw new Exception("Não existe evento com o id que foi inserido.");
 
-        await participanteRepository.CadastrarParticipante(participante);
+            await participanteRepository.CadastrarParticipante(participante);
 
-        return participanteModel;
+            return participanteModel;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+
+    }
+
+    public async Task<IEnumerable<ParticipanteModel>> BuscarParticipantesDoEvento(Guid idEvento)
+    {
+        try
+        {
+            var evento = await eventoRepository.PegarEventoPorId(idEvento);
+
+            if (evento == null)
+                throw new Exception("Não existe evento com o id que foi inserido.");
+
+            var partcipantesModel = new List<ParticipanteModel>();
+
+            var participantes = await participanteRepository.BuscarParticipantesDoEvento(idEvento);
+
+            if (!participantes.Any())
+                return new List<ParticipanteModel>();
+
+            foreach (var participante in participantes)
+            {
+                partcipantesModel.Add(mapper.Map<Participante, ParticipanteModel>(participante));
+            }
+
+            return partcipantesModel;
+
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 }

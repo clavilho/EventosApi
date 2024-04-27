@@ -19,4 +19,15 @@ public class ParticipanteModel
             Event_Id = participanteModel.IdEventoCadastrado
         };
     }
+
+    public static ParticipanteModel MapRequestParticipante(Participante participante)
+    {
+        return new ParticipanteModel
+        {
+            Nome = participante.Nome,
+            Email = participante.Email,
+            IdEventoCadastrado = participante.Event_Id
+        };
+    }
+
 }

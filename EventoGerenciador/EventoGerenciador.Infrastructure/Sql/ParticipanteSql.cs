@@ -14,4 +14,6 @@ public class ParticipanteSql
                                                 ,@email         
                                                 ,@eventoId         
                                                 ,@dataCriacao)";
+
+    public const string BUSCAR_PARTICIPANTES_DE_EVENTO = @"SELECT * FROM Participante WHERE [EventoId] = @eventoId";
 }
