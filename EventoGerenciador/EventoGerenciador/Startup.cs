@@ -27,7 +27,7 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Gestão de eventos", Description = "Api fazer a gestão de eventos", Version = "v1" });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "gestao-evento-api", Description = "Api fazer a gestão de eventos", Version = "v1" });
         });
 
 
@@ -38,5 +38,37 @@ public class Startup
             options.EnableForHttps = true;
         });
 
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+            app.UseDeveloperExceptionPage();
+        else
+            app.UseHsts();
+
+        app.UsePathBase("/gestao-evento-api");
+
+        //if (Environment.GetEnvironmentVariable("AMBIENTE") != AMBIENTE_PRODUCAO)
+        //{
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/gestao-evento-api/swagger/v1/swagger.json", "gestao-evento-api v1");
+            });
+       // }
+
+        app.UseHttpsRedirection();
+        app.UseRouting();
+        app.UseAuthorization();
+        app.UseResponseCompression();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+            endpoints.MapHealthChecks("/health");
+        });
+
+        var logger = app.ApplicationServices.GetService<ILogger<Program>>();
     }
 }
